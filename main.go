@@ -3,12 +3,13 @@ package main
 import (
 	"log"
 
-	"github.com/gitcart/development-twittor-go/bd"
-	"github.com/gitcart/development-twittor-go/handlers"
+	"github.com/GITCART/development-twittor-go/bd"
+
+	"github.com/GITCART/development-twittor-go/handlers"
 )
 
 func main() {
-	if bd.ChequeoConnection() == 0 {
+	if bd.ChequeConnection() == 0 {
 		log.Fatal("sin conexion  a la bd")
 		return
 	}

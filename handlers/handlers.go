@@ -5,6 +5,9 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/GITCART/development-twittor-go/middlew"
+	"github.com/GITCART/development-twittor-go/routers"
+
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -13,9 +16,12 @@ import (
 func Manejadores() {
 	router := mux.NewRouter()
 
+	//RUTAS
+	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
-		PORT = 8085
+		PORT = "8084"
 	}
 
 	handler := cors.AllowAll().Handler(router)
